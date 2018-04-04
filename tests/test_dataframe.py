@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-class testDataFrameMask(TestCase):
+class testFilter(TestCase):
     def test_masking(self):
         df = pd.read_csv("tests/data/data.csv")
         print(df.shape)
