@@ -2,4 +2,9 @@ panda
 Pillow
 numpy
 scipy
-#matplotlib
+matplotlib
+dash
+dash_core_components
+dash_html_components
+plotly
+dash_renderer
