@@ -34,3 +34,37 @@ class testFilter(TestCase):
         # replace 'B6' to 'B7'
         df.loc[df.FIELD_B=='B6',['FIELD_B']]='B7'
         print(df.loc[:,['FIELD_B']])
+    
+    def test_build_random_df(self):
+        import numpy as np
+
+        # generate a 5 x 4 DF with randon number
+        date_range = pd.date_range('3/6/2012 00:00', periods=5, freq='D')
+        df1 = pd.DataFrame(np.random.randn(len(date_range), 4), 
+                          index=date_range, 
+                          columns=list('ABCD'))
+        print(df1)
+
+        df2 = pd.DataFrame(np.random.randn(10, 4))
+        print(df2)
+
+        # Save to figure
+        ax = df2.plot()
+        fig = ax.get_figure()
+        fig.savefig('/tmp/dataframe.png')
+    
+    def test_build_series(self):
+        import numpy as np
+
+        s1 = pd.Series([1,2,3,4,5,6], index=pd.date_range('20130102', periods=6))
+        print(s1)
+
+        date_range = pd.date_range('3/6/2012 00:00', periods=5, freq='D')
+        s2 = pd.Series(np.random.randn(len(date_range)), index=date_range)
+        print(s2)
+
+        # Save to figure
+        ax = s2.plot()
+        fig = ax.get_figure()
+        fig.savefig('/tmp/series.png')
+
