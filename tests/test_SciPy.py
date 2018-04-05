@@ -2,7 +2,6 @@ from unittest import TestCase
 
 # To import imread, we need install 'Pillow'
 from scipy.misc import imread, imsave, imresize
-import matplotlib.pyplot as plt
 
 class test_scipy(TestCase):
     def test_image(self):

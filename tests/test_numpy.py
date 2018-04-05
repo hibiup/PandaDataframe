@@ -2,12 +2,6 @@ from unittest import TestCase
 
 import numpy as np
 
-'''
-Reference:
-
- http://cs231n.github.io/python-numpy-tutorial/
-'''
-
 class testNumpy(TestCase):
     def test_array(self):
         a = np.array([1, 2, 3])
