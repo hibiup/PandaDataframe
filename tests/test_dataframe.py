@@ -36,7 +36,15 @@ class testFilter(TestCase):
         print(df.loc[:,['FIELD_B']])
     
     def test_build_random_df(self):
+        '''
+        * 10 Minutes to Pandas:
+          http://pandas.pydata.org/pandas-docs/stable/10min.html
+
+        * Time Series Data Virtualization with Python: 
+          https://machinelearningmastery.com/time-series-data-visualization-with-python/
+        '''
         import numpy as np
+        from matplotlib import pyplot
 
         # generate a 5 x 4 DF with randon number
         date_range = pd.date_range('3/6/2012 00:00', periods=5, freq='D')
@@ -52,19 +60,25 @@ class testFilter(TestCase):
         ax = df2.plot()
         fig = ax.get_figure()
         fig.savefig('/tmp/dataframe.png')
+        # Show out
+        pyplot.show()
     
     def test_build_series(self):
         import numpy as np
+        from matplotlib import pyplot
 
-        s1 = pd.Series([1,2,3,4,5,6], index=pd.date_range('20130102', periods=6))
+        s1 = pd.Series([x for x in range(6)], index=pd.date_range('20130102', periods=6))
         print(s1)
 
-        date_range = pd.date_range('3/6/2012 00:00', periods=5, freq='D')
+        date_range = pd.date_range('3/6/2012 00:00', periods=50, freq='D')
         s2 = pd.Series(np.random.randn(len(date_range)), index=date_range)
         print(s2)
 
         # Save to figure
-        ax = s2.plot()
+        #ax = s2.plot(style='k.')
+        ax = s2.hist()
         fig = ax.get_figure()
         fig.savefig('/tmp/series.png')
+        # Show out
+        pyplot.show()
 
