@@ -51,6 +51,8 @@ class testMatplotlib(TestCase):
         import pandas as pd
         from matplotlib import pyplot
 
+        #plt.switch_backend('agg')     # Send show() to background
+
         # Generate figure base on CSV
         df1 = pd.read_csv("tests/data/dashboard_data.csv")
         ax1 = df1.plot(x='fpr', y='tpr')  # set axis
