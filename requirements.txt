@@ -1,1 +1,5 @@
 panda
+Pillow
+numpy
+scipy
+#matplotlib
