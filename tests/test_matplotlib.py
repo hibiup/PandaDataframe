@@ -45,3 +45,21 @@ class testMatplotlib(TestCase):
         plt.imshow(np.uint8(img_tinted))
 
         plt.show()
+    
+
+    def test_vsv_to_figure(self):
+        import pandas as pd
+        from matplotlib import pyplot
+
+        # Generate figure base on CSV
+        df1 = pd.read_csv("tests/data/dashboard_data.csv")
+        ax1 = df1.plot(x='fpr', y='tpr')  # set axis
+
+        # Overlap a line
+        df2 = pd.DataFrame([[0,0],[1,1]])
+        ax2 = df2.plot(ax=ax1)
+
+        fig = ax2.get_figure()
+        fig.savefig('/tmp/dashboard.png')
+        # Show out
+        pyplot.show()
